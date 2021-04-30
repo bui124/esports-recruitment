@@ -85,7 +85,19 @@ app.get("/register",(req,res)=>{
 
 app.post("/register",(req,res)=>{
     
-    User.register(new User({username: req.body.username,email: req.body.email,phone: req.body.phone}),req.body.password,function(err,user){
+    User.register(new User({
+        username: req.body.username,
+        email: req.body.email,
+        phone: req.body.phone,
+        discord: req.body.discord,
+        leagueoflegends:req.body.leagueoflegends,
+        overwatch:req.body.overwatch,
+        callofduty:req.body.callofduty,
+        valorant:req.body.valorant,
+        fortnite:req.body.fortnite,
+        apexlegends:req.body.apexlegends
+    }),
+        req.body.password,function(err,user){
         if(err){
             console.log(err);
             res.render("register");
